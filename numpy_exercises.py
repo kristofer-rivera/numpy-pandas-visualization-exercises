@@ -113,30 +113,49 @@ sum_of_b = 0
 for row in b:
     sum_of_b += sum(row)
 
+sum_of_b = b.sum()
+
 print(sum_of_b)
-
-
 # Exercise 2 - refactor the following to use numpy. 
 min_of_b = min(b[0]) if min(b[0]) <= min(b[1]) else min(b[1])  
+
+min_of_b = b.min()
+print(min_of_b)
 
 # Exercise 3 - refactor the following maximum calculation to find the answer with numpy.
 max_of_b = max(b[0]) if max(b[0]) >= max(b[1]) else max(b[1])
 
+max_of_b = b.max()
+print(max_of_b)
 
 # Exercise 4 - refactor the following using numpy to find the mean of b
 mean_of_b = (sum(b[0]) + sum(b[1])) / (len(b[0]) + len(b[1]))
+
+mean_of_b = b.mean()
+print(mean_of_b)
 
 # Exercise 5 - refactor the following to use numpy for calculating the product of all numbers multiplied together.
 product_of_b = 1
 for row in b:
     for number in row:
         product_of_b *= number
+print(product_of_b)
+
+b.prod()
+
 
 # Exercise 6 - refactor the following to use numpy to find the list of squares 
 squares_of_b = []
 for row in b:
     for number in row:
         squares_of_b.append(number**2)
+
+# Done manually
+square_of_b = b**2
+print(square_of_b)
+
+#Done using numpy function
+np.square(b)
 
 
 # Exercise 7 - refactor using numpy to determine the odds_in_b
@@ -146,6 +165,8 @@ for row in b:
         if(number % 2 != 0):
             odds_in_b.append(number)
 
+odds_in_b = b[b % 2 != 0]
+print(odds_in_b)
 
 # Exercise 8 - refactor the following to use numpy to filter only the even numbers
 evens_in_b = []
@@ -154,13 +175,24 @@ for row in b:
         if(number % 2 == 0):
             evens_in_b.append(number)
 
+evens_in_b = b[b % 2 == 0]
+print(evens_in_b)
+
+
 # Exercise 9 - print out the shape of the array b.
+
+print(np.shape(b))
 
 # Exercise 10 - transpose the array b.
 
+np.transpose(b)
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
 
+b.reshape(1, 6)
+
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
+
+b.reshape(6, 1)
 
 ## Setup 3
 c = [
@@ -169,22 +201,43 @@ c = [
     [7, 8, 9]
 ]
 
+c = np.array(c)
+
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 # Exercise 1 - Find the min, max, sum, and product of c.
 
+c.sum() #45
+c.min() # 1
+c.max() #9
+c.prod() #362880 
+
 # Exercise 2 - Determine the standard deviation of c.
+c.std() #2.581988897471611
 
 # Exercise 3 - Determine the variance of c.
 
+c.var() #6.666666666666667
+
 # Exercise 4 - Print out the shape of the array c
+
+np.shape(c)
 
 # Exercise 5 - Transpose c and print out transposed result.
 
+print(np.transpose(c))
+
 # Exercise 6 - Get the dot product of the array c with c. 
+
+np.dot(c, c)
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
 
+c_transposed = c.transpose()
+np.sum(c * c_transposed)
+
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
+
+np.prod(c * c_transposed)
 
 ## Setup 4
 d = [
@@ -193,22 +246,43 @@ d = [
     [60, 45, -45, 90, -45, 180]
 ]
 
+d = np.array(d)
+
 # Exercise 1 - Find the sine of all the numbers in d
+
+np.sin(d)
 
 # Exercise 2 - Find the cosine of all the numbers in d
 
+np.cos(d)
+
 # Exercise 3 - Find the tangent of all the numbers in d
+
+np.tan(d)
 
 # Exercise 4 - Find all the negative numbers in d
 
+d[d < 0]
+
 # Exercise 5 - Find all the positive numbers in d
+
+d[d > 0]
 
 # Exercise 6 - Return an array of only the unique numbers in d.
 
+np.unique(d)
+
 # Exercise 7 - Determine how many unique numbers there are in d.
+
+len(np.unique(d))
 
 # Exercise 8 - Print out the shape of d.
 
+np.shape(d)
+
 # Exercise 9 - Transpose and then print out the shape of d.
+print(np.shape(np.transpose(d)))
 
 # Exercise 10 - Reshape d into an array of 9 x 2
+
+d.reshape(9, 2)
