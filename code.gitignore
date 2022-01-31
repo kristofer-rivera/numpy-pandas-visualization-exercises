@@ -1,4 +1,4 @@
 .ipynb_checkpoints/
 series.ipynb
 env.py
-__pycache__/
+__pycache__
